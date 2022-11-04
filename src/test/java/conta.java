@@ -3,13 +3,92 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class conta {
-
-	int clienteEspecial;
-	int clienteComum;
-	int saque;
-	int saldoAtual = saque - clienteEspecial;
-	boolean tipoCliente;
 	
+	int clienteEspecial = -200;
+	int clienteComum = -300;
+	boolean tipoCliente;
+	int saque;
+	int saldoAtual;
+	
+	/**
+	 * 
+	 * @param tipoCliente Setando a variável tipoCliente
+	 */
+	public void setTipoCliente(boolean tipoCliente) {
+		this.tipoCliente = tipoCliente;
+	}
+	
+	/**
+	 * 
+	 * @return retornando a variável tipoCliente
+	 */
+	public boolean getTipoCliente() {
+		return tipoCliente;
+	}
+	
+	/**
+	 * 
+	 * @param clienteEspecial Setando a variável clienteEspecial
+	 */
+	public void setClienteEspecial(int clienteEspecial) {
+		this.clienteEspecial = clienteEspecial;
+	}
+	
+	/**
+	 * 
+	 * @return retornando a variável clienteEspecial
+	 */
+	public int getClienteEspecial() {
+		return clienteEspecial;
+	}
+	
+	/**
+	 * 
+	 * @param clienteComum Setando a variável clienteComum
+	 */
+	public void setClienteComum(int clienteComum) {
+		this.clienteComum = clienteComum;
+	}
+	
+	/**
+	 * 
+	 * @return retornando a variável clienteComum
+	 */
+	public int getClienteComum() {
+		return clienteComum;
+	}
+	
+	/**
+	 * 
+	 * @param saque Setando a variável saque
+	 */
+	public void setSaque(int saque) {
+		this.saque = saque;
+	}
+	
+	/**
+	 * 
+	 * @return retornando a variável saque
+	 */
+	public int getSaque() {
+		return saque;
+	}
+	
+	/**
+	 * 
+	 * @param saldoAtual Setando a variável saldoAtual
+	 */
+	public void setSaldoAtual(int saldoAtual) {
+		this.saldoAtual =  saque - clienteEspecial;
+	}
+	
+	/**
+	 * 
+	 * @return retornando a variável saldoAtual
+	 */
+	public int getSaldoAtual() {
+		return saldoAtual;
+	}
 	
 	/**
 	 * 
@@ -18,11 +97,11 @@ public class conta {
 	@Given("Um cliente especial com saldo atual de {int} reais")
 	public void um_cliente_especial_com_saldo_atual_de_reais(Integer int1) {
 		// Write code here that turns the phrase above into concrete actions
-		this.clienteEspecial = int1;
+		clienteEspecial = int1;
 
-		if (this.clienteEspecial != int1) {
+		if (clienteEspecial != int1) {
 
-			throw new io.cucumber.java.PendingException();
+			throw new io.cucumber.java.PendingException("Este passo Falhou");
 		}
 	}
 	
@@ -34,10 +113,9 @@ public class conta {
 	@When("For solicitado um saque no valor de {int} reais")
 	public void for_solicitado_um_saque_no_valor_de_reais(Integer int2) {
 		// Write code here that turns the phrase above into concrete actions
-		this.saque = int2;
-
-		if (this.saque != int2) {
-			throw new io.cucumber.java.PendingException();
+		saque = int2;
+		if (saque != int2) {
+			throw new io.cucumber.java.PendingException("Este passo Falhou");
 		}
 	}
 
@@ -49,11 +127,11 @@ public class conta {
 	public void deve_efetuar_o_saque_e_atualizar_o_saldo_da_conta_para_reais(Integer int3) {
 		// Write code here that turns the phrase above into concrete actions
 
-		this.tipoCliente = true;
-		if (tipoCliente = true && this.clienteEspecial < 0) {
-			this.saldoAtual = int3;
+		tipoCliente = true;
+		if (tipoCliente = true && clienteEspecial < 0) {
+			saldoAtual = int3;
 		} else {
-			throw new io.cucumber.java.PendingException();
+			throw new io.cucumber.java.PendingException("Este passo Falhou");
 		}
 	}
 
@@ -66,11 +144,11 @@ public class conta {
 	public void um_cliente_comum_com_saldo_atual_de_reais(Integer int1) {
 		// Write code here that turns the phrase above into concrete actions
 
-		this.clienteComum = int1;
+		clienteComum = int1;
 
-		if (this.clienteComum != int1) {
+		if (clienteComum != int1) {
 
-			throw new io.cucumber.java.PendingException();
+			throw new io.cucumber.java.PendingException("Este passo Falhou");
 		}
 	}
 
@@ -82,11 +160,11 @@ public class conta {
 	public void solicitar_um_saque_de_reais(Integer int2) {
 		// Write code here that turns the phrase above into concrete actions
 		
-		this.saque = int2;
+		saque = int2;
 		
-		if(this.saque != int2) {
+		if(saque != int2) {
 		
-		throw new io.cucumber.java.PendingException();
+		throw new io.cucumber.java.PendingException("Este passo Falhou");
 		}
 	}
 
@@ -99,10 +177,10 @@ public class conta {
 	public void nao_deve_efetuar_o_saque_e_deve_retornar_a_mensagem_saldo_insuficiente() {
 		// Write code here that turns the phrase above into concrete actions
 		
-		if(this.tipoCliente = true) {
+		if(tipoCliente = true) {
 			System.out.print("Saldo insuficiente");
 		}else {
-		throw new io.cucumber.java.PendingException();
+		throw new io.cucumber.java.PendingException("Este passo Falhou");
 		}
 	}
 }
