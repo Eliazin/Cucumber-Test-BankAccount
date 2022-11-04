@@ -84,7 +84,11 @@ public class conta {
 	 * @param saldoAtual Setando a variável saldoAtual
 	 */
 	public void setSaldoAtual(int saldoAtual) {
+		if(tipoCliente == true) {
 		this.saldoAtual =  saque - clienteEspecial;
+		}else {
+			this.saldoAtual = saque - clienteComum;
+		}
 	}
 	
 	/**
@@ -134,6 +138,7 @@ public class conta {
 
 		if (tipoCliente = true && clienteEspecial < 0) {
 			saldoAtual = int3;
+			System.out.println("Saldo Atual: " + saldoAtual);
 		} else {
 			throw new io.cucumber.java.PendingException("Este passo Falhou");
 		}
@@ -149,7 +154,7 @@ public class conta {
 		// Write code here that turns the phrase above into concrete actions
 
 		clienteComum = int1;
-
+		
 		if (clienteComum != -300) {
 
 			throw new io.cucumber.java.PendingException("Este passo Falhou");
@@ -181,10 +186,10 @@ public class conta {
 	public void nao_deve_efetuar_o_saque_e_deve_retornar_a_mensagem_saldo_insuficiente() {
 		// Write code here that turns the phrase above into concrete actions
 		
-		if(saldoAtual != -300 && tipoCliente == false) {
-			System.out.print("Saldo insuficiente");
+		if(saldoAtual != -300 && tipoCliente == false && clienteComum < 0) {
+			saldoAtual = clienteComum;
+			System.out.print("Saldo insuficiente: " + saldoAtual);
 		}else {
-		System.out.println("Este passo falhou");
 		throw new io.cucumber.java.PendingException("Este passo Falhou");
 		}
 	}
