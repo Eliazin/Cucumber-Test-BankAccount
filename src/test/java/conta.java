@@ -31,7 +31,12 @@ public class conta {
 	 * @param clienteEspecial Setando a variável clienteEspecial
 	 */
 	public void setClienteEspecial(int clienteEspecial) {
-		this.clienteEspecial = clienteEspecial;
+		if(tipoCliente == true) {
+			this.clienteEspecial = clienteEspecial;
+		
+		}else {
+			this.clienteComum = clienteComum;
+		}
 	}
 	
 	/**
@@ -127,7 +132,6 @@ public class conta {
 	public void deve_efetuar_o_saque_e_atualizar_o_saldo_da_conta_para_reais(Integer int3) {
 		// Write code here that turns the phrase above into concrete actions
 
-		tipoCliente = true;
 		if (tipoCliente = true && clienteEspecial < 0) {
 			saldoAtual = int3;
 		} else {
@@ -180,6 +184,7 @@ public class conta {
 		if(saldoAtual != -300 && tipoCliente == false) {
 			System.out.print("Saldo insuficiente");
 		}else {
+		System.out.println("Este passo falhou");
 		throw new io.cucumber.java.PendingException("Este passo Falhou");
 		}
 	}
