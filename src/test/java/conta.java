@@ -4,8 +4,8 @@ import io.cucumber.java.en.When;
 
 public class conta {
 	
-	int clienteEspecial = -200;
-	int clienteComum = -300;
+	int clienteEspecial;
+	int clienteComum;
 	boolean tipoCliente;
 	int saque;
 	int saldoAtual;
@@ -99,7 +99,7 @@ public class conta {
 		// Write code here that turns the phrase above into concrete actions
 		clienteEspecial = int1;
 
-		if (clienteEspecial != int1) {
+		if (clienteEspecial != -200) {
 
 			throw new io.cucumber.java.PendingException("Este passo Falhou");
 		}
@@ -114,7 +114,7 @@ public class conta {
 	public void for_solicitado_um_saque_no_valor_de_reais(Integer int2) {
 		// Write code here that turns the phrase above into concrete actions
 		saque = int2;
-		if (saque != int2) {
+		if (saque != 100) {
 			throw new io.cucumber.java.PendingException("Este passo Falhou");
 		}
 	}
@@ -146,7 +146,7 @@ public class conta {
 
 		clienteComum = int1;
 
-		if (clienteComum != int1) {
+		if (clienteComum != -300) {
 
 			throw new io.cucumber.java.PendingException("Este passo Falhou");
 		}
@@ -162,7 +162,7 @@ public class conta {
 		
 		saque = int2;
 		
-		if(saque != int2) {
+		if(saque != 200) {
 		
 		throw new io.cucumber.java.PendingException("Este passo Falhou");
 		}
@@ -177,7 +177,7 @@ public class conta {
 	public void nao_deve_efetuar_o_saque_e_deve_retornar_a_mensagem_saldo_insuficiente() {
 		// Write code here that turns the phrase above into concrete actions
 		
-		if(tipoCliente = true) {
+		if(saldoAtual != -300 && tipoCliente == false) {
 			System.out.print("Saldo insuficiente");
 		}else {
 		throw new io.cucumber.java.PendingException("Este passo Falhou");
