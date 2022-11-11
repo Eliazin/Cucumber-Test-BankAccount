@@ -186,7 +186,7 @@ public class conta {
 	public void nao_deve_efetuar_o_saque_e_deve_retornar_a_mensagem_saldo_insuficiente() {
 		// Write code here that turns the phrase above into concrete actions
 		
-		if(saldoAtual != -300 && tipoCliente == false && clienteComum < 0) {
+		if(saldoAtual != 100 && tipoCliente == false && clienteComum < 0) {
 			saldoAtual = clienteComum;
 			System.out.print("Saldo insuficiente: " + saldoAtual);
 		}else {
